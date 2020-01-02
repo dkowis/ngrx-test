@@ -4,8 +4,8 @@ import { createFormGroupState, FormGroupState, onNgrxForms } from 'ngrx-forms';
 import { InjectionToken } from '@angular/core';
 
 export interface OtherStuff {
-  some: string | null;
-  stuff: number | null;
+  name: string | null;
+  time: number | null;
 }
 
 export interface InfoForm {
@@ -30,29 +30,36 @@ const initialFormState = createFormGroupState<InfoForm>(FORM_ID, {
 const initialState: AppState = {
   infoForm: initialFormState,
   thing: {
-    some: null,
-    stuff: null,
+    name: null,
+    time: null,
   },
   moreThings: {
-    some: null,
-    stuff: null,
+    name: null,
+    time: null,
   }
 };
 
 
-export const someAction = createAction('[Some Lame Action] some', props<{ name: string }>());
+export const someAction = createAction('[Some Lame Action] name', props<{ name: string }>());
+
+export const timedAction = createAction('[Some Lame Action] timer', props<{ time: number }>());
 
 export const someReducer = createReducer<OtherStuff>(
   {
-    some: null,
-    stuff: null,
+    name: null,
+    time: null,
   },
   on(someAction, (state, {name}) => ({
       ...state,
-      some: name,
-      stuff: 99,
+      name,
+      time: 99,
     })
-  ));
+  ),
+  on(timedAction, (state, {time}) => ({
+    ...state,
+    time
+  }))
+);
 
 export const formReducer = createReducer<FormGroupState<InfoForm>>(
   initialFormState,

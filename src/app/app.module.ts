@@ -10,7 +10,6 @@ import { AppEffects } from './app.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { InfoformComponent } from './infoform/infoform.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { LameformComponent } from './lameform/lameform.component';
 import { NgrxFormsModule } from 'ngrx-forms';
 
@@ -23,7 +22,7 @@ import { NgrxFormsModule } from 'ngrx-forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
+    // ReactiveFormsModule,
     NgrxFormsModule,
     StoreModule.forRoot(ROOT_REDUCER, {
       metaReducers,
@@ -40,4 +39,5 @@ import { NgrxFormsModule } from 'ngrx-forms';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

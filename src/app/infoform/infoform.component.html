@@ -19,4 +19,6 @@
   <li>First Name: {{ firstNameValue$ | async }}</li>
   <li>Last Name: {{ lastNameValue$ | async }}</li>
   <li>Age: {{ ageValue$ | async }}</li>
+  <li>Name: {{ nameValue$ | async }}</li>
+  <li>Time: {{ (timeValue$ | async) | date:'HH:mm:ss dd MMM yyyy'}}</li>
 </ul>
